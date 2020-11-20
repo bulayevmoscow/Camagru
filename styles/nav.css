@@ -1,0 +1,31 @@
+.container.menu {
+    margin: 0 !important;
+    /*padding: 0!important;*/
+    width: 100%;
+    max-width: unset !important;
+}
+
+.menu > .row {
+}
+
+.menu .navbar {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    /*flex-wrap: nowrap;*/
+}
+
+.menu .collapse {
+    display: flex;
+    flex-basis: auto;
+    justify-content: flex-end;
+}
+
+.menu .collapse > ul {
+    display: flex;
+    flex-direction: row;
+}
+
+.menu .collapse > ul > li {
+    margin: 5px;
+}
