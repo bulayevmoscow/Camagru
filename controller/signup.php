@@ -1,5 +1,6 @@
 <?php
-	require __DIR__.'/controller/db.php';
+//	echo __DIR__.'/../controller/db.php';
+	require __DIR__.'/../controller/db.php';
 	$data = $_POST;
 	$errors = array();
 	if (trim($data['login']) == '') {
@@ -22,24 +23,10 @@
 		];
 		$conn->prepare("INSERT INTO users (login, password, register_date, email_check, email_message)
 values (?, ?, ?, ?, ?);")->execute([$user['login'], $user['pass'], $user['register_date'], $user['email_check'], $user['email_message']]);
-		header('Location: index.php?need_email_confirm=true');
+		header('Location: /index.php?need_email_confirm=true');
 	} else {
-		header("Location: index.php?page=register&reg=".implode(',', $errors));
+		header("Location: /index.php?page=register&reg=".implode(',', $errors));
 	}
 
-?>
 
-<!---->
-<!--<div class="container">-->
-<!--    <div class="row">-->
-<!--        <p class="h3 text-center">-->
-<!--			--><?php //var_dump($errors); ?>
-<!--        </p>-->
-<!--        <p class="h3 text-center">-->
-<!--			--><?php //if (isset($user)) {
-//				var_dump($user);
-//			} ?>
-<!--        </p>-->
-<!--    </div>-->
-<!--</div>-->
 
