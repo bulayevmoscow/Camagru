@@ -785,7 +785,7 @@ false Z
 false Zulu
 false posixrules
 </TimeZones>
-      <StartupTime>1605871341</StartupTime>
+      <StartupTime>1605898506</StartupTime>
     </root>
     <database id="2" parent="1" name="kupsyloc">
       <ObjectId>16385</ObjectId>
@@ -795,9 +795,10 @@ false posixrules
       <ObjectId>13364</ObjectId>
       <Comment>default administrative connection database</Comment>
       <Owner>postgres</Owner>
-      <IntrospectionStateNumber>631</IntrospectionStateNumber>
+      <IntrospectionStateNumber>666</IntrospectionStateNumber>
       <Current>1</Current>
       <Relations>sequence|table|24576|24578|1
+sequence|table|32768|32770|1
 sequence|table|24585|24587|1
 </Relations>
     </database>
@@ -863,7 +864,7 @@ sequence|table|24585|24587|1
       <Comment>standard public schema</Comment>
       <StateNumber>359</StateNumber>
       <Owner>postgres</Owner>
-      <IntrospectionStateNumber>632</IntrospectionStateNumber>
+      <IntrospectionStateNumber>667</IntrospectionStateNumber>
       <Current>1</Current>
     </schema>
     <access-method id="18" parent="3" name="btree">
@@ -932,24 +933,40 @@ sequence|table|24585|24587|1
       <StateNumber>591</StateNumber>
       <DataType>integer|0s</DataType>
     </sequence>
-    <sequence id="30" parent="17" name="users_id_seq">
+    <sequence id="30" parent="17" name="posts_id_seq">
+      <ObjectId>32768</ObjectId>
+      <Owner>php_test</Owner>
+      <StateNumber>655</StateNumber>
+      <DataType>integer|0s</DataType>
+    </sequence>
+    <sequence id="31" parent="17" name="users_id_seq">
       <ObjectId>24585</ObjectId>
       <Owner>kupsyloc</Owner>
       <StateNumber>609</StateNumber>
       <DataType>integer|0s</DataType>
     </sequence>
-    <table id="31" parent="17" name="persons">
+    <table id="32" parent="17" name="persons">
       <ObjectId>24578</ObjectId>
       <Owner>kupsyloc</Owner>
       <StateNumber>591</StateNumber>
     </table>
-    <table id="32" parent="17" name="users">
+    <table id="33" parent="17" name="post">
+      <ObjectId>32774</ObjectId>
+      <Owner>php_test</Owner>
+      <StateNumber>658</StateNumber>
+    </table>
+    <table id="34" parent="17" name="posts">
+      <ObjectId>32770</ObjectId>
+      <Owner>php_test</Owner>
+      <StateNumber>655</StateNumber>
+    </table>
+    <table id="35" parent="17" name="users">
       <ObjectId>24587</ObjectId>
       <Comment>table of users</Comment>
       <Owner>kupsyloc</Owner>
       <StateNumber>609</StateNumber>
     </table>
-    <column id="33" parent="31" name="id">
+    <column id="36" parent="32" name="id">
       <Position>1</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
@@ -957,25 +974,74 @@ sequence|table|24585|24587|1
       <DefaultExpression>nextval(&apos;persons_id_seq&apos;::regclass)</DefaultExpression>
       <TypeId>23</TypeId>
     </column>
-    <column id="34" parent="31" name="firstname">
+    <column id="37" parent="32" name="firstname">
       <Position>2</Position>
       <DataType>varchar(100)|0s</DataType>
       <StateNumber>591</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="35" parent="31" name="lastname">
+    <column id="38" parent="32" name="lastname">
       <Position>3</Position>
       <DataType>varchar(100)|0s</DataType>
       <StateNumber>591</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="36" parent="31" name="age">
+    <column id="39" parent="32" name="age">
       <Position>4</Position>
       <DataType>integer|0s</DataType>
       <StateNumber>591</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="37" parent="32" name="id">
+    <column id="40" parent="33" name="id">
+      <Position>1</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>658</StateNumber>
+      <TypeId>23</TypeId>
+    </column>
+    <column id="41" parent="33" name="is_like">
+      <Position>2</Position>
+      <DataType>boolean|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>665</StateNumber>
+      <TypeId>16</TypeId>
+    </column>
+    <column id="42" parent="33" name="by">
+      <Position>3</Position>
+      <DataType>varchar(100)|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>658</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="43" parent="33" name="message">
+      <Position>4</Position>
+      <DataType>varchar(1000)|0s</DataType>
+      <StateNumber>658</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="44" parent="34" name="id">
+      <Position>1</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>655</StateNumber>
+      <DefaultExpression>nextval(&apos;posts_id_seq&apos;::regclass)</DefaultExpression>
+      <TypeId>23</TypeId>
+    </column>
+    <column id="45" parent="34" name="creator">
+      <Position>2</Position>
+      <DataType>varchar(100)|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>655</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="46" parent="34" name="path">
+      <Position>3</Position>
+      <DataType>varchar(200)|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>655</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="47" parent="35" name="id">
       <Position>1</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
@@ -983,33 +1049,33 @@ sequence|table|24585|24587|1
       <DefaultExpression>nextval(&apos;users_id_seq&apos;::regclass)</DefaultExpression>
       <TypeId>23</TypeId>
     </column>
-    <column id="38" parent="32" name="login">
+    <column id="48" parent="35" name="login">
       <Position>2</Position>
       <DataType>varchar(100)|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>609</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="39" parent="32" name="password">
+    <column id="49" parent="35" name="password">
       <Position>3</Position>
       <DataType>varchar(100)|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>609</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="40" parent="32" name="register_date">
+    <column id="50" parent="35" name="register_date">
       <Position>4</Position>
       <DataType>date|0s</DataType>
       <StateNumber>609</StateNumber>
       <TypeId>1082</TypeId>
     </column>
-    <column id="41" parent="32" name="email_check">
+    <column id="51" parent="35" name="email_check">
       <Position>5</Position>
       <DataType>boolean|0s</DataType>
       <StateNumber>609</StateNumber>
       <TypeId>16</TypeId>
     </column>
-    <column id="42" parent="32" name="email_message">
+    <column id="52" parent="35" name="email_message">
       <Position>6</Position>
       <DataType>varchar(100)|0s</DataType>
       <StateNumber>609</StateNumber>

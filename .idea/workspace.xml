@@ -2,8 +2,25 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fab92241-87dd-4d52-a1e6-6600baa0a02d" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/Camagru.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/System.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/controller/add_commend.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/controller/add_like.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/controller/confirm_mail.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/view/gallery.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/view/lk.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/3084fc7d-2d2b-42af-95ac-719eb226129c.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/3084fc7d-2d2b-42af-95ac-719eb226129c.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/3084fc7d-2d2b-42af-95ac-719eb226129c/storage_v2/_src_/database/postgres.edMnLQ/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/3084fc7d-2d2b-42af-95ac-719eb226129c/storage_v2/_src_/database/postgres.edMnLQ/schema/public.abK9xQ.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/db.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/db.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/controller/login.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/login.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/controller/signup.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/signup.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/nav.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/nav.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/register.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/register.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -18,6 +35,7 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration" interpreter_name="PHP 7.1" />
   <component name="ProjectId" id="1kYKS5JJO9znX8WQtvP4zwSR3Ob" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -26,8 +44,10 @@
     <property name="DatabaseDriversLRU" value="postgresql" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="database.data.extractors.current.export.id" value="Comma-separated (CSV)_id" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="JavaScript.Libraries" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
@@ -48,7 +68,10 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1605872081643</updated>
-      <workItem from="1605872082997" duration="926000" />
+      <workItem from="1605872082997" duration="12002000" />
+      <workItem from="1605892939426" duration="905000" />
+      <workItem from="1605893867906" duration="2356000" />
+      <workItem from="1605898556902" duration="7374000" />
     </task>
     <servers />
   </component>
@@ -56,29 +79,49 @@
     <option name="version" value="3" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="1367" y="398" key="#PHP" timestamp="1605872143748">
+    <state x="1367" y="227" width="1070" height="1213" key="#PHP" timestamp="1605903746801">
       <screen x="0" y="0" width="2560" height="1440" />
     </state>
-    <state x="1367" y="398" key="#PHP/0.0.2560.1440@0.0.2560.1440" timestamp="1605872143748" />
+    <state x="1367" y="227" width="1070" height="1213" key="#PHP/0.0.2560.1440@0.0.2560.1440" timestamp="1605903746801" />
     <state x="523" y="709" width="1071" height="714" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1605872612276">
       <screen x="0" y="0" width="2560" height="1440" />
     </state>
     <state x="523" y="709" width="1071" height="714" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.2560.1440@0.0.2560.1440" timestamp="1605872612276" />
-    <state width="1698" height="424" key="GridCell.Tab.0.bottom" timestamp="1605872265441">
+    <state width="1154" height="424" key="GridCell.Tab.0.bottom" timestamp="1605905723600">
       <screen x="0" y="0" width="2560" height="1440" />
     </state>
-    <state width="1698" height="424" key="GridCell.Tab.0.bottom/0.0.2560.1440@0.0.2560.1440" timestamp="1605872265441" />
-    <state width="1698" height="424" key="GridCell.Tab.0.center" timestamp="1605872265440">
+    <state width="1154" height="424" key="GridCell.Tab.0.bottom/0.0.2560.1440@0.0.2560.1440" timestamp="1605905723600" />
+    <state width="1154" height="424" key="GridCell.Tab.0.center" timestamp="1605905723599">
       <screen x="0" y="0" width="2560" height="1440" />
     </state>
-    <state width="1698" height="424" key="GridCell.Tab.0.center/0.0.2560.1440@0.0.2560.1440" timestamp="1605872265440" />
-    <state width="1698" height="424" key="GridCell.Tab.0.left" timestamp="1605872265439">
+    <state width="1154" height="424" key="GridCell.Tab.0.center/0.0.2560.1440@0.0.2560.1440" timestamp="1605905723599" />
+    <state width="1154" height="424" key="GridCell.Tab.0.left" timestamp="1605905723599">
       <screen x="0" y="0" width="2560" height="1440" />
     </state>
-    <state width="1698" height="424" key="GridCell.Tab.0.left/0.0.2560.1440@0.0.2560.1440" timestamp="1605872265439" />
-    <state width="1698" height="424" key="GridCell.Tab.0.right" timestamp="1605872265441">
+    <state width="1154" height="424" key="GridCell.Tab.0.left/0.0.2560.1440@0.0.2560.1440" timestamp="1605905723599" />
+    <state width="1154" height="424" key="GridCell.Tab.0.right" timestamp="1605905723599">
       <screen x="0" y="0" width="2560" height="1440" />
     </state>
-    <state width="1698" height="424" key="GridCell.Tab.0.right/0.0.2560.1440@0.0.2560.1440" timestamp="1605872265441" />
+    <state width="1154" height="424" key="GridCell.Tab.0.right/0.0.2560.1440@0.0.2560.1440" timestamp="1605905723599" />
+    <state x="1686" y="453" key="NewPhpClassDialog" timestamp="1605893222411">
+      <screen x="0" y="0" width="2560" height="1440" />
+    </state>
+    <state x="1686" y="453" key="NewPhpClassDialog/0.0.2560.1440@0.0.2560.1440" timestamp="1605893222411" />
+    <state x="1780" y="650" key="NewPhpFileDialog" timestamp="1605906546840">
+      <screen x="0" y="0" width="2560" height="1440" />
+    </state>
+    <state x="1780" y="650" key="NewPhpFileDialog/0.0.2560.1440@0.0.2560.1440" timestamp="1605906546840" />
+    <state x="1299" y="359" key="SettingsEditor" timestamp="1605899037170">
+      <screen x="0" y="0" width="2560" height="1440" />
+    </state>
+    <state x="1299" y="359" key="SettingsEditor/0.0.2560.1440@0.0.2560.1440" timestamp="1605899037170" />
+    <state x="1481" y="532" key="com.intellij.database.dbimport.ImportUtil.ChooseTargetDialog" timestamp="1605901932616">
+      <screen x="0" y="0" width="2560" height="1440" />
+    </state>
+    <state x="1481" y="532" key="com.intellij.database.dbimport.ImportUtil.ChooseTargetDialog/0.0.2560.1440@0.0.2560.1440" timestamp="1605901932616" />
+    <state x="1392" y="313" width="744" height="813" key="com.intellij.database.view.ui.AbstractDbRefactoringDialog" timestamp="1605903204707">
+      <screen x="0" y="0" width="2560" height="1440" />
+    </state>
+    <state x="1392" y="313" width="744" height="813" key="com.intellij.database.view.ui.AbstractDbRefactoringDialog/0.0.2560.1440@0.0.2560.1440" timestamp="1605903204707" />
   </component>
 </project>

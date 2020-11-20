@@ -7,10 +7,13 @@
                     <li class="nav-item active">
                         <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/?page=gallery">Gallery <span class="sr-only">(current)</span></a>
+                    </li>
 
 					<?php if ($_SESSION['logged_user']) { ?>
                         <li class="nav-item d-flex flex-row">
-                            <a class="nav-link" href="/controller/exit.php">Вы вошли как <?php echo $_SESSION['logged_user'] ?></a>
+                            <a class="nav-link" href="/index.php?page=lk">Вы вошли как <?php echo $_SESSION['logged_user'] ?></a>
                             <a class="nav-link" href="/controller/exit.php">(Выйти)</a>
 
                         </li>
