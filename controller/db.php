@@ -14,3 +14,16 @@ function query_quotes($str)
 	return "'".$str."'";
 }
 
+function mail_check_str($str, $len)
+{
+//	if (preg_match("/[\w\d\s@]+$/", $str))
+//	{
+//		echo 'hi';
+//	}
+}
+
+function parse_nbr_page($perefer_str)
+{
+	preg_match('/(pages=\d*)/', $perefer_str, $match);
+	return '&'.$match[0];
+}

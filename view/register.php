@@ -1,22 +1,3 @@
-<?php
-	if (isset($_GET['err'])) {
-		foreach (explode(',', $_GET['err']) as $value) {
-			?>
-            <p class="bg-danger p-2 text-white mb-0"><?php echo $value ?></p>
-			<?php
-		}
-	}
-?>
-<?php
-	if (isset($_GET['msg'])) {
-		foreach (explode(',', $_GET['msg']) as $value) {
-			?>
-            <p class="bg-success p-2 text-white mb-0"><?php echo $value ?></p>
-			<?php
-		}
-	}
-?>
-
 <?php if (!isset($_GET['need_email_confirm'])) { ?>
     <div class="container text-center h-100 d-flex justify-content-center flex-column mt-5" style="min-height: 1vh">
         <form class="form-signin mx-auto mt-2 d-none" action="/controller/signup.php" method="post" style="min-width: 400px">

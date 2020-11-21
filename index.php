@@ -30,7 +30,6 @@
 <?php
 
 
-//	echo("pgsql:host='';dbname=postgres", 'php_test', 1234)`);
 ?>
 
 </body>
