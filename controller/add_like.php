@@ -1,1 +1,1 @@
-<?php	// TODO Допилить лайки
+<?php	// TODO Допилить лайки	var_dump($_POST);
