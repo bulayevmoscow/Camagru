@@ -1,71 +1,72 @@
 .container.menu {
-    margin: 0 !important;
-    /*padding: 0!important;*/
-    width: 100%;
-    max-width: unset !important;
+	margin: 0 !important;
+	/*padding: 0!important;*/
+	width: 100%;
+	max-width: unset !important;
 }
 
 .menu > .row {
 }
 
 .menu .navbar {
-    display: flex;
-    flex-direction: row;
-    width: 100%;
-    /*flex-wrap: nowrap;*/
+	display: flex;
+	flex-direction: row;
+	width: 100%;
+	/*flex-wrap: nowrap;*/
 }
 
 .menu .collapse {
-    display: flex;
-    flex-basis: auto;
-    justify-content: flex-end;
+	display: flex;
+	flex-basis: auto;
+	justify-content: flex-end;
 }
 
 .menu .collapse > ul {
-    display: flex;
-    flex-direction: row;
+	display: flex;
+	flex-direction: row;
 }
 
 .menu .collapse > ul > li {
-    margin: 5px;
+	margin: 5px;
 }
 
 /*button like*/
-form.reset-active:focus, button:focus{
-    outline: none;
+form.reset-active:focus, button:focus {
+	outline: none;
 }
 
 button.like {
-    cursor: pointer;
-    display: inline-block;
-    font-weight: 400;
-    text-align: center;
-    vertical-align: middle;
-    border: unset;
-    background-color: unset
+	cursor: pointer;
+	display: inline-block;
+	font-weight: 400;
+	text-align: center;
+	vertical-align: middle;
+	border: unset;
+	background-color: unset
 }
 
 button.like > svg > path {
-    transition: 0.2s;
+	transition: 0.2s;
 }
+
 button.like.yes > svg > path {
-    fill: red;
+	fill: red;
 }
+
 button.like.no > svg > path {
-    fill: black;
+	fill: black;
 }
 
 button.like.yes:hover > svg > path {
-    fill: black;
+	fill: black;
 }
+
 button.like.no:hover > svg > path {
-    fill: red;
-}
-button.like.yes:active{
-
-}
-button.like.yes:active > svg > path{
-
+	fill: red;
 }
 
+button.like.yes:active {
+}
 
+button.like.yes:active > svg > path {
+}

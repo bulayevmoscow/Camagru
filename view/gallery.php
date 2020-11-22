@@ -8,28 +8,28 @@
 <?php ?>
 
 
-<div class="container gallery-container">
-    <div class="row">
-		<?php
-			$posts = $conn->query('Select * from posts');
-			while ($row = $posts->fetch(PDO::FETCH_LAZY)) { ?>
-                <div class="img-container col-12 border-danger border m-2">
-                    <img src="<?php echo '/img/'.$row['path'] ?>" alt=""
-                         class="d-block p-2 m-auto" style="max-height: 200px">
-                    <div class="like-container d-flex flex-row justify-content-between align-items-center">
-                        <p>Понравилось =
-							<?php echo($conn->query(sprintf("select count(*) from post where id='%d' and is_like=true ;", $row['id']))
-								->fetch()[0]); ?>
-                        </p>
-                        <span>
+    <div class="container gallery-container">
+        <div class="row">
+			<?php
+				$posts = $conn->query('Select * from posts ORDER BY id DESC');
+				while ($row = $posts->fetch(PDO::FETCH_LAZY)) { ?>
+                    <div class="img-container col-12 border-danger border m-2">
+                        <img src="<?php echo '/img/'.$row['path'] ?>" alt=""
+                             class="d-block p-2 m-auto" style="max-height: 200px">
+                        <div class="like-container d-flex flex-row justify-content-between align-items-center">
+                            <p>Понравилось =
+								<?php echo($conn->query(sprintf("select count(*) from post where id='%d' and is_like=true ;", $row['id']))
+									->fetch()[0]); ?>
+                            </p>
+                            <span>
                             <form action="/controller/add_like.php" method="post" class="reset-active">
                                 <input class="d-none" type="text" name="post" value="<?php echo $row['id'] ?>">
                                 <?php
-                                    $query = sprintf("SELECT count(*) from post where by='%s' and id=%d and is_like=true;",
-                                        $_SESSION['logged_user'], $row['id']);
-                                    $like = ($conn->query($query)->fetch()['count']);
+	                                $query = sprintf("SELECT count(*) from post where by='%s' and id=%d and is_like=true;",
+		                                $_SESSION['logged_user'], $row['id']);
+	                                $like = ($conn->query($query)->fetch()['count']);
                                 ?>
-                                <button type="submit" class="like <?php echo ($like) ? 'yes': 'no';?>">
+                                <button type="submit" class="like <?php echo ($like) ? 'yes' : 'no'; ?>">
                                     <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
                                          width="36" height="36"
                                          viewBox="0 0 24 24"
@@ -39,53 +39,71 @@
                                 </button>
                             </form>
                         </span>
-                    </div>
-                    <p>debug id = <?php echo $row['id'] ?></p>
-					<?php
-						$commends = $conn->query(sprintf("select * from post where id=%d and is_like=false;", $row['id']));
-						while ($commend = $commends->fetch(PDO::FETCH_LAZY)) {
-							?>
-                            <div class="d-flex flex-column">
-                                <div class="p-2 border d-flex flex-column w-100 position-relative">
-                                    <span class="author">Автор сообщения <?php echo $commend['by'] ?><br></span>
-                                    <p class="commend"> <?php echo trim($commend['message']) ?></p>
-									<?php if ($commend['by'] == $_SESSION['logged_user']) { ?>
-                                        <div class="delete-commend-icon position-absolute"
-                                             style="right: 5px; top: 0px">
-                                            <form action="/controller/delete_commend.php" method="post">
-                                                <input type="text" class="d-none" name="img" value="<?php echo $row['id'] ?>">
-                                                <input type="text" class="d-none" name="id" value="<?php echo $commend['id_post'] ?>">
-                                                <button type="submit" class="close" aria-label="Close">
-                                                    <span aria-hidden="true">&times;</span>
-                                                </button>
-                                            </form>
-                                        </div>
-									<?php } ?>
+                        </div>
+                        <p>debug id = <?php echo $row['id'] ?></p>
+						<?php
+							$commends = $conn->query(sprintf("select * from post where id=%d and is_like=false;", $row['id']));
+							while ($commend = $commends->fetch(PDO::FETCH_LAZY)) {
+								?>
+                                <div class="d-flex flex-column">
+                                    <div class="p-2 border d-flex flex-column w-100 position-relative">
+                                        <span class="author">Автор сообщения <?php echo $commend['by'] ?><br></span>
+                                        <p class="commend"> <?php echo trim($commend['message']) ?></p>
+										<?php if ($commend['by'] == $_SESSION['logged_user']) { ?>
+                                            <div class="delete-commend-icon position-absolute"
+                                                 style="right: 5px; top: 0px">
+                                                <form action="/controller/delete_commend.php" method="post">
+                                                    <input type="text" class="d-none" name="img" value="<?php echo $row['id'] ?>">
+                                                    <input type="text" class="d-none" name="id" value="<?php echo $commend['id_post'] ?>">
+                                                    <button type="submit" class="close" aria-label="Close">
+                                                        <span aria-hidden="true">&times;</span>
+                                                    </button>
+                                                </form>
+                                            </div>
+										<?php } ?>
+                                    </div>
                                 </div>
-                            </div>
 
-						<?php } ?>
+							<?php } ?>
 
 
-                    <div class="mb-2">
-                        <form class="mx-auto mt-2 w-100 "
-                              action="/controller/add_commend.php"
-                              method="post">
+                        <div class="mb-2">
+                            <form class="mx-auto mt-2 w-100 "
+                                  action="/controller/add_commend.php"
+                                  method="post">
                             <textarea class="form-control mb-2" name="commend"
                                       id=""></textarea>
-                            <input class="d-none" type="text" name="img"
-                                   value="<?php echo $row['id'] ?>">
-                            <button class="btn btn-lg btn-primary btn-block d-block w-100"
-                                    type="submit">Отправить коммент
-                            </button>
-                        </form>
+                                <input class="d-none" type="text" name="img"
+                                       value="<?php echo $row['id'] ?>">
+                                <button class="btn btn-lg btn-primary btn-block d-block w-100"
+                                        type="submit">Отправить коммент
+                                </button>
+                            </form>
 
+
+                        </div>
 
                     </div>
+				<?php } ?>
 
-                </div>
-			<?php } ?>
+        </div>
 
-    </div>
+<?php
+//
+//	TODO:
+//	   Эта часть должна быть доступна только пользователям, которые аутентифицированы / подключены
+//	   и вежливо отклоняют всех других пользователей, которые пытаются получить к ней доступ без успешного входа в систему.
+//	TODO: Эта страница должна содержать 2 раздела:
+//		- Основной раздел, содержащий предварительный просмотр веб-камеры пользователя, список наложенных изображений и кнопку,
+//		позволяющую сделать снимок.
+//		- Боковая часть, показывающая эскизы всех ранее сделанных снимков. Макет вашей страницы обычно должен выглядеть так, как показано
+//		 на рисунке V.1.
+//	TODO: Функционал
+//		- Наложение изображений должно быть доступно для выбора, а кнопка, позволяющая сделать снимок, должна быть неактивной (не
+//		кликабельной) до тех пор, пока не выбрано наложенное изображение.
+//		- Создание окончательного изображения (среди прочего, наложение двух изображений) должно выполняться на стороне сервера в PHP.
+//		- Поскольку не у всех есть веб-камера, вам следует разрешить загрузку пользовательского изображения вместо того, чтобы снимать его с
+//		помощью веб-камеры.
+//		- Пользователь должен иметь возможность удалять свои отредактированные изображения, но только свои, а не творения других пользователей.
 
-
+?>
