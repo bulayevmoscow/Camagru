@@ -26,8 +26,6 @@
 //		SELECT count(*) from post where id_post='5' and by='1@4' and id='1'
 		if ($conn->query(sprintf("SELECT count(*) from post where id_post='%d' and by='%s' and id='%d'", $post, $user, $id))->fetch()[0]) {
 			$conn->query(sprintf("delete FROM post where id_post=%d;", $post));
-			$page = 0;
-			preg_match('/(pages=\d*)/', $_SERVER['HTTP_REFERER'], $match);
 			header('Location: /index.php/?page=gallery'.parse_nbr_page($_SERVER['HTTP_REFERER']));
 			exit();
 		} else {

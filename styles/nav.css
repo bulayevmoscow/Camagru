@@ -31,11 +31,14 @@
 }
 
 /*button like*/
+form.reset-active:focus, button:focus{
+    outline: none;
+}
+
 button.like {
     cursor: pointer;
     display: inline-block;
     font-weight: 400;
-    color: #212529;
     text-align: center;
     vertical-align: middle;
     border: unset;
@@ -45,15 +48,23 @@ button.like {
 button.like > svg > path {
     transition: 0.2s;
 }
+button.like.yes > svg > path {
+    fill: red;
+}
+button.like.no > svg > path {
+    fill: black;
+}
 
 button.like.yes:hover > svg > path {
+    fill: black;
+}
+button.like.no:hover > svg > path {
     fill: red;
 }
 button.like.yes:active{
-    background: red;
+
 }
 button.like.yes:active > svg > path{
-    fill: white;
 
 }
 

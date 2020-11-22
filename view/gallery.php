@@ -22,9 +22,14 @@
 								->fetch()[0]); ?>
                         </p>
                         <span>
-                            <form action="/controller/add_like.php" method="post">
+                            <form action="/controller/add_like.php" method="post" class="reset-active">
                                 <input class="d-none" type="text" name="post" value="<?php echo $row['id'] ?>">
-                                <button type="submit" class="like yes">
+                                <?php
+                                    $query = sprintf("SELECT count(*) from post where by='%s' and id=%d and is_like=true;",
+                                        $_SESSION['logged_user'], $row['id']);
+                                    $like = ($conn->query($query)->fetch()['count']);
+                                ?>
+                                <button type="submit" class="like <?php echo ($like) ? 'yes': 'no';?>">
                                     <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
                                          width="36" height="36"
                                          viewBox="0 0 24 24"
