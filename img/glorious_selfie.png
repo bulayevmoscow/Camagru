@@ -1,0 +1,122 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <link rel="stylesheet" href="/styles/nav.css">
+
+</head>
+<body>
+
+<div class="container menu">
+    <div class="row">
+        <nav class="navbar navbar-dark bg-primary">
+            <a class="navbar-brand" href="/">Navbar</a>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="navbar-nav">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="index.php?page=make" >Make photo<span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/?page=gallery">Gallery <span
+                                    class="sr-only">(current)</span></a>
+                    </li>
+
+					                        <li class="nav-item d-flex flex-row">
+                            <a class="nav-link" href="/index.php?page=lk">Вы
+                                вошли
+                                как 2@2</a>
+                            <a class="nav-link" href="/controller/exit.php">(Выйти)</a>
+
+                        </li>
+					                </ul>
+            </div>
+        </nav>
+    </div>
+			</div>
+<pre>
+
+    </pre>
+<div class="container make-photo">
+    <div class="row border">
+		            <div class="col-8 border web-cam">
+                <video src="" style="width: 95%; margin: auto; display: block"></video>
+                <!--                Окно захвата-->
+                <script !src="">
+                    navigator.getUserMedia(
+                        {video: true},
+                        // Колбэк для успешной операции
+                        function (stream) {
+                            let video = document.querySelector('video');
+                            video.srcObject = stream;
+                            video.play();
+                        },
+                        // Колбэк для не успешной операции
+                        function (err) {
+                            document.querySelector('#web-cam-err').innerHTML = 'Ошибка подключение к камере, проверте ее наличие или ' +
+                                'разрешите сайту доступ к камере. Или загрузите ваш снимок<br>Код ошибки ' + err;
+
+                        }
+                    );
+
+                </script>
+                <p id="web-cam-err"></p>
+                <!--                Содание снепшота-->
+                <script>
+                    function takeSnapshot() {
+
+                        var hidden_canvas = document.querySelector('canvas'),
+                            video = document.querySelector('video.camera_stream'),
+                            image = document.querySelector('img.photo'),
+
+                            // Получаем размер видео элемента.
+                            width = video.videoWidth,
+                            height = video.videoHeight,
+
+                            // Объект для работы с canvas.
+                            context = hidden_canvas.getContext('2d');
+
+
+                        // Установка размеров canvas идентичных с video.
+                        hidden_canvas.width = width;
+                        hidden_canvas.height = height;
+
+                        // Отрисовка текущего кадра с video в canvas.
+                        context.drawImage(video, 0, 0, width, height);
+
+                        // Преобразование кадра в изображение dataURL.
+                        var imageDataURL = hidden_canvas.toDataURL('image/png');
+
+                        // Помещение изображения в элемент img.
+                        image.setAttribute('src', imageDataURL);
+
+                    }
+                </script>
+                <a id="dl-btn" href="#" download="glorious_selfie.png">Save Photo</a>
+
+                <div>
+
+                </div>
+                <form class="hand" action="/controller/fisting.php" method="post">
+                    <input type="file" name="picture">
+                    <button type="submit">1</button>
+                </form>
+                <div id="fileOutput">
+                    <img id="output" class="w-75 m-auto d-block" src="" alt="">
+                </div>
+
+            </div>
+		        <div class="col-4">
+
+        </div>
+    </div>
+</div>
+
+
+
+</body>
+</html>

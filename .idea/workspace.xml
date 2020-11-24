@@ -2,15 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fab92241-87dd-4d52-a1e6-6600baa0a02d" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/3084fc7d-2d2b-42af-95ac-719eb226129c.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/3084fc7d-2d2b-42af-95ac-719eb226129c.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/3084fc7d-2d2b-42af-95ac-719eb226129c/storage_v2/_src_/database/postgres.edMnLQ/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/3084fc7d-2d2b-42af-95ac-719eb226129c/storage_v2/_src_/database/postgres.edMnLQ/schema/public.abK9xQ.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/controller/fisting.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/img/1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/img/glorious_selfie.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/js/photo.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/php.ini" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test.http" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/view/make_photo.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/reg.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/reg.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/styles/nav.css" beforeDir="false" afterPath="$PROJECT_DIR$/styles/nav.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/add_commend.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/add_commend.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/view/gallery.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/gallery.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/nav.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/nav.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -19,6 +22,13 @@
   </component>
   <component name="ComposerSettings">
     <execution />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -40,7 +50,7 @@
     <property name="database.data.extractors.current.export.id" value="SQL Inserts" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="preferences.sourceCode" />
+    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
@@ -48,10 +58,118 @@
       <recent name="$PROJECT_DIR$/books" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RestClientSettings">
+    <option name="REQUEST_HISTORY">
+      <list>
+        <RestClientRequest>
+          <option name="httpMethod" value="POST" />
+          <option name="urlBase" value="http://localhost:8080/controller/fisting.php" />
+          <option name="urlPath" value="" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Content-Type" />
+                <option name="value" value="application/x-www-form-urlencoded" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="haveTextToSend" value="true" />
+          <option name="textToSend" value="{&#10;  &quot;id&quot;: 999,&#10;  &quot;value&quot;: &quot;content&quot;&#10;}" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="httpMethod" value="POST" />
+          <option name="urlBase" value="http://localhost:8080/controller/fisting.php" />
+          <option name="urlPath" value="" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Content-Type" />
+                <option name="value" value="application/x-www-form-urlencoded" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="haveTextToSend" value="true" />
+          <option name="textToSend" value="id=999&amp;value=content" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="httpMethod" value="GET" />
+          <option name="urlBase" value="http://localhost:8080/controller/fisting.php" />
+          <option name="urlPath" value="" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Content-Type" />
+                <option name="value" value="application/json" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="haveTextToSend" value="true" />
+          <option name="textToSend" value="{&#10;  &quot;id&quot;: 999,&#10;  &quot;value&quot;: &quot;content&quot;&#10;}" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="httpMethod" value="GET" />
+          <option name="urlBase" value="http://localhost:8080/controller/fisting.php" />
+          <option name="urlPath" value="" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Content-Type" />
+                <option name="value" value="application/x-www-form-urlencoded" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="haveTextToSend" value="true" />
+          <option name="textToSend" value="{&#10;  &quot;id&quot;: 999,&#10;  &quot;value&quot;: &quot;content&quot;&#10;}" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="httpMethod" value="POST" />
+          <option name="urlBase" value="http://localhost:8080/controller/fisting.php" />
+          <option name="urlPath" value="" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Content-Type" />
+                <option name="value" value="application/json" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="haveTextToSend" value="true" />
+          <option name="textToSend" value="{&#10;  &quot;id&quot;: 999,&#10;  &quot;value&quot;: &quot;content&quot;&#10;}" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="HTTP Request.test#2">
+    <configuration name="All in test" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$PROJECT_DIR$/test.http">
+      <method v="2" />
+    </configuration>
+    <configuration name="test#1" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$PROJECT_DIR$/test.http" runType="Run single request">
+      <method v="2" />
+    </configuration>
+    <configuration name="test#2" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$PROJECT_DIR$/test.http" index="2" runType="Run single request">
+      <method v="2" />
+    </configuration>
     <configuration name="Unnamed" type="PhpBuiltInWebServerConfigurationType" factoryName="PHP Built-in Web Server" nameIsGenerated="true" document_root="$PROJECT_DIR$" port="8080">
       <method v="2" />
     </configuration>
+    <list>
+      <item itemvalue="HTTP Request.All in test" />
+      <item itemvalue="PHP Built-in Web Server.Unnamed" />
+      <item itemvalue="HTTP Request.test#2" />
+      <item itemvalue="HTTP Request.test#1" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="HTTP Request.test#2" />
+        <item itemvalue="HTTP Request.test#1" />
+        <item itemvalue="HTTP Request.All in test" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -66,7 +184,12 @@
       <workItem from="1605893867906" duration="2356000" />
       <workItem from="1605898556902" duration="7543000" />
       <workItem from="1605967160235" duration="15671000" />
-      <workItem from="1606057022038" duration="6168000" />
+      <workItem from="1606057022038" duration="6452000" />
+      <workItem from="1606139884539" duration="1386000" />
+      <workItem from="1606143404206" duration="601000" />
+      <workItem from="1606144099203" duration="107000" />
+      <workItem from="1606147300292" duration="13726000" />
+      <workItem from="1606232935102" duration="10584000" />
     </task>
     <servers />
   </component>
@@ -81,42 +204,46 @@
       <screen x="0" y="0" width="2560" height="1440" />
     </state>
     <state x="1240" y="423" width="798" height="594" key="#CSS/0.0.2560.1440@0.0.2560.1440" timestamp="1606065816064" />
-    <state x="219" y="136" width="1070" height="1213" key="#PHP" timestamp="1605985078966">
+    <state x="219" y="136" width="1070" height="1213" key="#PHP" timestamp="1606066681073">
       <screen x="0" y="0" width="2560" height="1440" />
     </state>
-    <state x="219" y="136" width="1070" height="1213" key="#PHP/0.0.2560.1440@0.0.2560.1440" timestamp="1605985078966" />
-    <state x="1360" y="126" width="1071" height="714" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1605989059855">
+    <state x="219" y="136" width="1070" height="1213" key="#PHP/0.0.2560.1440@0.0.2560.1440" timestamp="1606066681073" />
+    <state x="1360" y="126" width="1071" height="714" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1606246719762">
       <screen x="0" y="0" width="2560" height="1440" />
     </state>
-    <state x="1360" y="126" width="1071" height="714" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.2560.1440@0.0.2560.1440" timestamp="1605989059855" />
-    <state width="1329" height="433" key="GridCell.Tab.0.bottom" timestamp="1606066310233">
+    <state x="1360" y="126" width="1071" height="714" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.2560.1440@0.0.2560.1440" timestamp="1606246719762" />
+    <state width="1728" height="419" key="GridCell.Tab.0.bottom" timestamp="1606249328037">
       <screen x="0" y="0" width="2560" height="1440" />
     </state>
-    <state width="1329" height="433" key="GridCell.Tab.0.bottom/0.0.2560.1440@0.0.2560.1440" timestamp="1606066310233" />
-    <state width="1329" height="433" key="GridCell.Tab.0.center" timestamp="1606066310231">
+    <state width="1728" height="419" key="GridCell.Tab.0.bottom/0.0.2560.1440@0.0.2560.1440" timestamp="1606249328037" />
+    <state width="1401" height="419" key="GridCell.Tab.0.bottom/0.23.2560.1327@0.23.2560.1327" timestamp="1606178049469" />
+    <state width="1728" height="419" key="GridCell.Tab.0.center" timestamp="1606249328036">
       <screen x="0" y="0" width="2560" height="1440" />
     </state>
-    <state width="1329" height="433" key="GridCell.Tab.0.center/0.0.2560.1440@0.0.2560.1440" timestamp="1606066310231" />
-    <state width="1329" height="433" key="GridCell.Tab.0.left" timestamp="1606066310230">
+    <state width="1728" height="419" key="GridCell.Tab.0.center/0.0.2560.1440@0.0.2560.1440" timestamp="1606249328036" />
+    <state width="1401" height="419" key="GridCell.Tab.0.center/0.23.2560.1327@0.23.2560.1327" timestamp="1606178049468" />
+    <state width="1728" height="419" key="GridCell.Tab.0.left" timestamp="1606249328035">
       <screen x="0" y="0" width="2560" height="1440" />
     </state>
-    <state width="1329" height="433" key="GridCell.Tab.0.left/0.0.2560.1440@0.0.2560.1440" timestamp="1606066310230" />
-    <state width="1329" height="433" key="GridCell.Tab.0.right" timestamp="1606066310232">
+    <state width="1728" height="419" key="GridCell.Tab.0.left/0.0.2560.1440@0.0.2560.1440" timestamp="1606249328035" />
+    <state width="1401" height="419" key="GridCell.Tab.0.left/0.23.2560.1327@0.23.2560.1327" timestamp="1606178049467" />
+    <state width="1728" height="419" key="GridCell.Tab.0.right" timestamp="1606249328036">
       <screen x="0" y="0" width="2560" height="1440" />
     </state>
-    <state width="1329" height="433" key="GridCell.Tab.0.right/0.0.2560.1440@0.0.2560.1440" timestamp="1606066310232" />
+    <state width="1728" height="419" key="GridCell.Tab.0.right/0.0.2560.1440@0.0.2560.1440" timestamp="1606249328036" />
+    <state width="1401" height="419" key="GridCell.Tab.0.right/0.23.2560.1327@0.23.2560.1327" timestamp="1606178049469" />
     <state x="1686" y="453" key="NewPhpClassDialog" timestamp="1605893222411">
       <screen x="0" y="0" width="2560" height="1440" />
     </state>
     <state x="1686" y="453" key="NewPhpClassDialog/0.0.2560.1440@0.0.2560.1440" timestamp="1605893222411" />
-    <state x="1780" y="650" key="NewPhpFileDialog" timestamp="1605975780161">
+    <state x="1780" y="650" key="NewPhpFileDialog" timestamp="1606156217139">
       <screen x="0" y="0" width="2560" height="1440" />
     </state>
-    <state x="1780" y="650" key="NewPhpFileDialog/0.0.2560.1440@0.0.2560.1440" timestamp="1605975780161" />
-    <state x="1299" y="359" key="SettingsEditor" timestamp="1606065754931">
+    <state x="1780" y="650" key="NewPhpFileDialog/0.0.2560.1440@0.0.2560.1440" timestamp="1606156217139" />
+    <state x="1175" y="337" key="SettingsEditor" timestamp="1606144205989">
       <screen x="0" y="0" width="2560" height="1440" />
     </state>
-    <state x="1299" y="359" key="SettingsEditor/0.0.2560.1440@0.0.2560.1440" timestamp="1606065754931" />
+    <state x="1175" y="337" key="SettingsEditor/0.0.2560.1440@0.0.2560.1440" timestamp="1606144205989" />
     <state x="1424" y="470" width="540" height="524" key="StructurePopup" timestamp="1605979842774">
       <screen x="0" y="0" width="2560" height="1440" />
     </state>
@@ -129,20 +256,13 @@
       <screen x="0" y="0" width="2560" height="1440" />
     </state>
     <state x="1392" y="313" width="744" height="813" key="com.intellij.database.view.ui.AbstractDbRefactoringDialog/0.0.2560.1440@0.0.2560.1440" timestamp="1605978571030" />
-    <state x="1523" y="294" width="783" height="514" key="dock-window-1" timestamp="1606057388548">
+    <state x="1523" y="294" width="783" height="514" key="dock-window-1" timestamp="1606140276176">
       <screen x="0" y="0" width="2560" height="1440" />
     </state>
-    <state x="1523" y="294" width="783" height="514" key="dock-window-1/0.0.2560.1440@0.0.2560.1440" timestamp="1606057388548" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="php">
-          <url>file://$PROJECT_DIR$/view/gallery.php</url>
-          <line>46</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <state x="1523" y="294" width="783" height="514" key="dock-window-1/0.0.2560.1440@0.0.2560.1440" timestamp="1606140276176" />
+    <state x="945" y="331" width="670" height="676" key="search.everywhere.popup" timestamp="1606235004793">
+      <screen x="0" y="0" width="2560" height="1440" />
+    </state>
+    <state x="945" y="331" width="670" height="676" key="search.everywhere.popup/0.0.2560.1440@0.0.2560.1440" timestamp="1606235004793" />
   </component>
 </project>

@@ -1,0 +1,13 @@
+POST http://localhost:8080/controller/fisting.php
+Content-Type: application/x-www-form-urlencoded
+
+id=999&value=content
+
+###
+POST http://localhost:8080/controller/fisting.php
+Content-Type: application/x-www-form-urlencoded
+
+{
+  "id": 999,
+  "value": "content"
+}

@@ -9,6 +9,7 @@
 	$err = array();
 
 	if ($user == NULL) {
+		//FIXME: Сделать нормальную адресацию
 		header('Location: /index.php?page=register&msg=Для продолжения залогиньтесь');
 		exit();
 	}
@@ -17,6 +18,7 @@
 	if (!is_numeric($id))
 		$err[] = 'Неверное изображение';
 	if ($err) {
+		//FIXME: Сделать нормальную адресацию
 		header(sprintf('Location: http://localhost:8080/?page=gallery&pages=%d&err=%s',
 			$id / 10, implode(',', $err)));
 		exit();

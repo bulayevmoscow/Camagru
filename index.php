@@ -23,12 +23,14 @@
 	include __DIR__.'/view/register.php';
 } elseif (($_GET['page']) === 'gallery') {
 	include __DIR__.'/view/gallery.php';
+}elseif (($_GET['page']) === 'make') {
+	include __DIR__.'/view/make_photo.php';
 }
 
 ?>
 
 <?php
-
+//    echo mail('alexzlow@yandex.ru', 'subject', 'НЕТ!');
 
 ?>
 
