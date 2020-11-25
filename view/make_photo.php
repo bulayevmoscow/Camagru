@@ -28,46 +28,32 @@
     <div class="row border">
 		<?php if ($_GET['type'] === 'webcam') { ?>
             <div class="col-8 border web-cam">
-                <video src="" style="width: 100%; margin: auto; display: block"></video>
-                <!--                Окно захвата-->
-                <script !src="">
-                    let stream;
-                    navigator.getUserMedia(
-                        {video: true},
-                        // Колбэк для успешной операции
-                        function (stream) {
-                            let video = document.querySelector('video');
-                            video.srcObject = stream;
-                            video.play();
-                        },
-                        // Колбэк для не успешной операции
-                        function (err) {
-                            document.querySelector('#web-cam-err').innerHTML = 'Ошибка подключение к камере, проверте ее наличие или ' +
-                                'разрешите сайту доступ к камере. Или загрузите ваш снимок<br>Код ошибки ' + err;
-
-                        }
-                    );
-
-                </script>
-                <p id="web-cam-err"></p>
-                <!--                Содание снепшота-->
-
-                <a class="btn btn-danger" href="#" onclick="webcam_stop_recording(event)">Сделать снимок</a>
-                <div class="d-flex justify-content-between my-2">
-                    <a href="" class="btn btn-success" disabled>Добавить маску</a>
-                    <a class="btn btn-primary" onclick="sumbit_photo()">Отправить</a>
-                </div>
-
                 <div id="preview">
 
                 </div>
-                <form class="hand" action="/controller/fisting.php" method="post">
-                    <input type="file" name="picture">
-                    <button type="submit">1</button>
-                </form>
-                <div id="fileOutput">
-                    <img id="output" class="w-75 m-auto d-block" src="" alt="">
+                <video src="" class="d-none" style="width: 100%; margin: auto; display: block"></video>
+                <!--                Окно захвата-->
+                <script !src="">        </script>
+                <p id="web-cam-err"></p>
+                <!--                Содание снепшота-->
+
+
+                <div id="wc-makephoto" class="d-flex justify-content-between my-2  d-none">
+                    <a id="wc-b-makephoto" class="btn btn-danger d-none" onclick="webcam_make_snapshot(event)">Сделать снимок</a>
+                    <a id="wc-b-addmask" class="btn btn-success d-none" onclick="webcamAddMask()" disabled>Добавить маску</a>
+                    <a id="wc-b-submit" class="btn btn-primary d-none" onclick="sumbit_photo()">Отправить</a>
                 </div>
+                <div id="wc-mask-list">
+                    <p>Mask</p>
+                </div>
+
+<!--                <form class="hand" action="/controller/fisting.php" method="post">-->
+<!--                    <input type="file" name="picture">-->
+<!--                    <button type="submit">1</button>-->
+<!--                </form>-->
+<!--                <div id="fileOutput">-->
+<!--                    <img id="output" class="w-75 m-auto d-block" src="" alt="">-->
+<!--                </div>-->
 
             </div>
 		<?php } ?>

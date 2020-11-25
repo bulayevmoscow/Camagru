@@ -70,3 +70,9 @@ button.like.yes:active {
 
 button.like.yes:active > svg > path {
 }
+
+/*preview webcam*/
+#preview img{
+	display: block;
+	width: 100%;
+}
