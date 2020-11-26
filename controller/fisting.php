@@ -1,70 +1,67 @@
 <?php
-	//	var_dump($_FILES);
-	//	session_start();
-	//	require_once 'db.php';
-	////	TODO:ВАЛИДАЦИЯ
-	//	$images = $_POST['img'];
-	//	$conn = db_connect();
-	//	$idUser = $conn->query(sprintf("SELECT ID FROM users where login='%s';", $_SESSION['logged_user']))->fetch()[0];
-	//	$path = $_SERVER['DOCUMENT_ROOT'].'/img/'.$idUser;
-	////	Проверяем наличие папки
-	//	if (!file_exists($path))
-	//		mkdir($path, 0777);
-	//	$path = $path.'/'.md5($images[0]).'.jpg';
-	//	var_dump(move_uploaded_file($images[0], $path));
-	//	var_dump($_FILES['picture']['tmp_name']);
-	//
-	//
-	//
-	//
-	//	var_dump($path);
-	//
-	//
-	//	$first = $images[0];
-	//	$second = $images[1];
 
-	//	imagecopymerge($first, $second, 0, 0, 10, 10, 500, 200, 75);
-	//	header('Content-Type: image/png');
-	//	imagegif($first);
-	//
-	//	imagedestroy($first);
-	//	imagedestroy($second);
-	//	var_dump($_FILES['f']['tmp_name']);
-	//	var_dump($_FILES);
+	$img = array();
 
-	//	copy($_FILES['f']['tmp_name'], $_SERVER['DOCUMENT_ROOT'].'/img/1.jpg');
-	//	//	echo 'MOLODEC';
+	if (!isset($_FILES) ||
+		!isset($_FILES['indexPhoto']) ||
+		!isset($_FILES['indexPhoto']['tmp_name']) ||
+		$_FILES['indexPhoto']['error']) {
+
+	}
+	//	checkExt();
+
+	$img['index'] = $_FILES['indexPhoto'];
+	$img['indexPhoto'] = $_FILES['indexPhoto']['tmp_name'];
+	$img['indexImage'] = checkExt($_FILES['indexPhoto']);
+	$img['second'] = null;
+	$img['final'] = null;
 	//	header('Content-Type: image/jpg');
-	//
-	//	imagejpeg($_SERVER['DOCUMENT_ROOT'].'/img/1.jpg');
+	header('Content-Type: image/png');
+	//	test
+	$img['indexImage'] = filterImage($img['indexImage']);
+//	imagefilter($img['indexImage'], IMG_FILTER_GRAYSCALE);
+	imagepng($img['indexImage']);
+
+
+	//	print_r($_FILES);
 ?>
 
+<?php
+	function checkExt($img)
+	{
+		if (($image = imagecreatefromstring(file_get_contents($img['tmp_name']))) == false) {
+			header("HTTP/1.0 500 ERROR LOAD IMAGE");
+			exit(303);
+		} else {
+			return $image;
+		}
+	}
+	function filterImage($img){
+		$config = json_decode($_POST['json'], true);
 
+
+		if ($config["wcSettingBrightness"] != 0)
+		{
+//			from -255 to 255
+			imagefilter($img, IMG_FILTER_BRIGHTNESS, $config["wcSettingBrightness"]);
+		}
+		if ($config["wcSettingContrast"] != 0)
+		{
+			imagefilter($img, IMG_FILTER_BRIGHTNESS, $config["wcSettingBrightness"]);
+		}
+		if ($config["wcSettingInvert"])
+		{
+			imagefilter($img, IMG_FILTER_NEGATE);
+		}
+		if ($config["wcSettingGrayscale"])
+		{
+			imagefilter($img, IMG_FILTER_GRAYSCALE);
+		}
+		return $img;
+	}
+?>
 <?php
 	//	TODO Сделать валидацию пользователя
 	//  TODO  Сделать валидацию файлов
-		echo($_POST['blob']);
-//	var_dump($_POST);
-//	var_dump($_GET);
-//	$json = json_decode($POST[''])
-
-
-//	$post_img = preg_replace('#^data:image/[^;]+;base64,#', '', $_POST['blob']);
-//	$data = base64_decode($post_img);
-//
-//	$im = imagecreatefromstring($data);
-//	imagefilter($im, IMG_FILTER_GRAYSCALE);
-//	ob_start();
-//	imagejpeg($im);
-//	$contents = ob_get_contents();
-//	ob_end_clean();
-//
-//	$dataUri = "data:image/jpeg;base64," . base64_encode($contents);
-//
-//	echo($dataUri);
-
-
-
-
 ?>
 

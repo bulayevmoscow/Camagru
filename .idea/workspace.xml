@@ -2,12 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fab92241-87dd-4d52-a1e6-6600baa0a02d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/test.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/controller/fisting.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/fisting.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/js/photo.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/photo.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/styles/nav.css" beforeDir="false" afterPath="$PROJECT_DIR$/styles/nav.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test.http" beforeDir="false" afterPath="$PROJECT_DIR$/test.http" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/view/make_photo.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/make_photo.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -45,7 +42,7 @@
     <property name="database.data.extractors.current.export.id" value="SQL Inserts" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors" />
+    <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
@@ -1054,7 +1051,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="HTTP Request.test#3">
+  <component name="RunManager" selected="PHP Built-in Web Server.Unnamed">
     <configuration name="All in test" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$PROJECT_DIR$/test.http">
       <method v="2" />
     </configuration>
@@ -1111,7 +1108,9 @@
       <workItem from="1606147300292" duration="13726000" />
       <workItem from="1606232935102" duration="10696000" />
       <workItem from="1606313840227" duration="6649000" />
-      <workItem from="1606325919773" duration="7917000" />
+      <workItem from="1606325919773" duration="8208000" />
+      <workItem from="1606405712229" duration="197000" />
+      <workItem from="1606406070157" duration="12446000" />
     </task>
     <servers />
   </component>
@@ -1138,38 +1137,38 @@
       <screen x="0" y="0" width="2560" height="1440" />
     </state>
     <state x="1493" y="593" key="#com.intellij.ws.actions.HttpClientConvertFromCurlDialog/0.0.2560.1440@0.0.2560.1440" timestamp="1606328046761" />
-    <state width="1397" height="419" key="GridCell.Tab.0.bottom" timestamp="1606338241882">
+    <state width="856" height="423" key="GridCell.Tab.0.bottom" timestamp="1606423274767">
       <screen x="0" y="0" width="2560" height="1440" />
     </state>
-    <state width="1397" height="419" key="GridCell.Tab.0.bottom/0.0.2560.1440@0.0.2560.1440" timestamp="1606338241882" />
-    <state width="1401" height="419" key="GridCell.Tab.0.bottom/0.23.2560.1327@0.23.2560.1327" timestamp="1606178049469" />
-    <state width="1397" height="419" key="GridCell.Tab.0.center" timestamp="1606338241880">
+    <state width="856" height="423" key="GridCell.Tab.0.bottom/0.0.2560.1440@0.0.2560.1440" timestamp="1606423274767" />
+    <state width="1397" height="419" key="GridCell.Tab.0.bottom/0.23.2560.1327@0.23.2560.1327" timestamp="1606339552463" />
+    <state width="856" height="423" key="GridCell.Tab.0.center" timestamp="1606423274765">
       <screen x="0" y="0" width="2560" height="1440" />
     </state>
-    <state width="1397" height="419" key="GridCell.Tab.0.center/0.0.2560.1440@0.0.2560.1440" timestamp="1606338241880" />
-    <state width="1401" height="419" key="GridCell.Tab.0.center/0.23.2560.1327@0.23.2560.1327" timestamp="1606178049468" />
-    <state width="1397" height="419" key="GridCell.Tab.0.left" timestamp="1606338241879">
+    <state width="856" height="423" key="GridCell.Tab.0.center/0.0.2560.1440@0.0.2560.1440" timestamp="1606423274765" />
+    <state width="1397" height="419" key="GridCell.Tab.0.center/0.23.2560.1327@0.23.2560.1327" timestamp="1606339552462" />
+    <state width="856" height="423" key="GridCell.Tab.0.left" timestamp="1606423274764">
       <screen x="0" y="0" width="2560" height="1440" />
     </state>
-    <state width="1397" height="419" key="GridCell.Tab.0.left/0.0.2560.1440@0.0.2560.1440" timestamp="1606338241879" />
-    <state width="1401" height="419" key="GridCell.Tab.0.left/0.23.2560.1327@0.23.2560.1327" timestamp="1606178049467" />
-    <state width="1397" height="419" key="GridCell.Tab.0.right" timestamp="1606338241880">
+    <state width="856" height="423" key="GridCell.Tab.0.left/0.0.2560.1440@0.0.2560.1440" timestamp="1606423274764" />
+    <state width="1397" height="419" key="GridCell.Tab.0.left/0.23.2560.1327@0.23.2560.1327" timestamp="1606339552461" />
+    <state width="856" height="423" key="GridCell.Tab.0.right" timestamp="1606423274766">
       <screen x="0" y="0" width="2560" height="1440" />
     </state>
-    <state width="1397" height="419" key="GridCell.Tab.0.right/0.0.2560.1440@0.0.2560.1440" timestamp="1606338241880" />
-    <state width="1401" height="419" key="GridCell.Tab.0.right/0.23.2560.1327@0.23.2560.1327" timestamp="1606178049469" />
+    <state width="856" height="423" key="GridCell.Tab.0.right/0.0.2560.1440@0.0.2560.1440" timestamp="1606423274766" />
+    <state width="1397" height="419" key="GridCell.Tab.0.right/0.23.2560.1327@0.23.2560.1327" timestamp="1606339552462" />
     <state x="1686" y="453" key="NewPhpClassDialog" timestamp="1605893222411">
       <screen x="0" y="0" width="2560" height="1440" />
     </state>
     <state x="1686" y="453" key="NewPhpClassDialog/0.0.2560.1440@0.0.2560.1440" timestamp="1605893222411" />
-    <state x="1780" y="650" key="NewPhpFileDialog" timestamp="1606156217139">
+    <state x="1780" y="650" key="NewPhpFileDialog" timestamp="1606422565406">
       <screen x="0" y="0" width="2560" height="1440" />
     </state>
-    <state x="1780" y="650" key="NewPhpFileDialog/0.0.2560.1440@0.0.2560.1440" timestamp="1606156217139" />
-    <state x="1175" y="337" key="SettingsEditor" timestamp="1606144205989">
+    <state x="1780" y="650" key="NewPhpFileDialog/0.0.2560.1440@0.0.2560.1440" timestamp="1606422565406" />
+    <state x="774" y="254" key="SettingsEditor" timestamp="1606407959422">
       <screen x="0" y="0" width="2560" height="1440" />
     </state>
-    <state x="1175" y="337" key="SettingsEditor/0.0.2560.1440@0.0.2560.1440" timestamp="1606144205989" />
+    <state x="774" y="254" key="SettingsEditor/0.0.2560.1440@0.0.2560.1440" timestamp="1606407959422" />
     <state x="1424" y="470" width="540" height="524" key="StructurePopup" timestamp="1605979842774">
       <screen x="0" y="0" width="2560" height="1440" />
     </state>
@@ -1190,9 +1189,9 @@
       <screen x="0" y="23" width="2560" height="1327" />
     </state>
     <state x="1414" y="345" key="run.anything.popup/0.23.2560.1327@0.23.2560.1327" timestamp="1606329882916" />
-    <state x="945" y="331" width="670" height="676" key="search.everywhere.popup" timestamp="1606235004793">
+    <state x="945" y="331" width="670" height="676" key="search.everywhere.popup" timestamp="1606415651952">
       <screen x="0" y="0" width="2560" height="1440" />
     </state>
-    <state x="945" y="331" width="670" height="676" key="search.everywhere.popup/0.0.2560.1440@0.0.2560.1440" timestamp="1606235004793" />
+    <state x="945" y="331" width="670" height="676" key="search.everywhere.popup/0.0.2560.1440@0.0.2560.1440" timestamp="1606415651952" />
   </component>
 </project>
