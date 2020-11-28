@@ -20,8 +20,9 @@
 ?>
 
 <?php if (!isset($_GET['type'])) { ?>
-    <script !src="">window.location.href = window.location.href + '&type=webcam'</script>
+    <script>window.location.href = window.location.href + '&type=webcam'</script>
 <?php } ?>
+
 <script src="/js/photo.js"></script>
 
 <div class="container make-photo">
@@ -32,18 +33,17 @@
 
                 </div>
                 <video src="" class="d-none" style="width: 100%; margin: auto; display: block"></video>
-                <!--                Окно захвата-->
-                <script !src=""></script>
                 <p id="web-cam-err"></p>
-                <!--                Содание снепшота-->
-
-
                 <div id="wc-makephoto" class="d-flex justify-content-between my-2  d-none">
                     <a id="wc-b-makephoto" class="btn btn-danger d-none" onclick="webcam_make_snapshot(event)">Сделать снимок</a>
-                    <a id="wc-b-addmask" class="btn btn-success d-none" onclick="webcamAddMask()" disabled>Добавить маску</a>
-                    <a id="wc-b-submit" class="btn btn-primary d-none" onclick="sendImageToRender()">Отправить</a>
+                    <input type="file" name="name" id="downloadImage" accept="image/*" hidden onchange="getPhotoFromLoad(event)">
+                    <label for="downloadImage"><a id="downloadImageLabel" class="btn btn-success" onclick="">Загрузить
+                            файл</a></label>
+
+                    <a id="wc-b-download" class="btn btn-success d-none" onclick="sendImagesToSave()">Отправить</a>
+                    <a id="wc-b-submit" class="btn btn-primary d-none" onclick="addPhotoToThumbnails()">Сохранить</a>
                 </div>
-                <div id="wc-mask-list">
+                <div id="wc-mask-list" class="d-none">
                     <label for="wcSettingBrightness">Яркость</label>
                     <input type="range" class="form-control-range" id="wcSettingBrightness" value="0" min="-255" max="255" step="1">
                     <label for="wcSettingContrast">Контраст</label>
@@ -55,21 +55,28 @@
                         <div class="w-100"></div>
                         <input class="form-check-input" type="checkbox" value="" id="wcSettingGrayscale">
                         <label class="form-check-label" for="wcSettingGrayscale">Чернобелое</label>
+                        <!--Иконки-->
+
+                        <p class="h4 my-2">Маски</p>
+                        <input class="form-check-input" type="radio" name="choiceMask" value="unset" checked>
+                        <label class="form-check-label">Без маски</label>
+						<?php $files = scandir(__DIR__.'/../img/icons/');
+							foreach ($files as $file) {
+								if ($file == '.' || $file == '..')
+									continue;
+								?>
+                                <div class="w-100"></div>
+                                <input class="form-check-input" type="radio" name="choiceMask" value="<?php echo $file ?>">
+                                <label class="form-check-label"><?php echo $file ?></label>
+							<?php } ?>
                     </div>
                 </div>
-
-                <!--                <form class="hand" action="/controller/fisting.php" method="post">-->
-                <!--                    <input type="file" name="picture">-->
-                <!--                    <button type="submit">1</button>-->
-                <!--                </form>-->
-                <!--                <div id="fileOutput">-->
-                <!--                    <img id="output" class="w-75 m-auto d-block" src="" alt="">-->
-                <!--                </div>-->
-
             </div>
 		<?php } ?>
         <div class="col-4">
+            <div id="thumbnails">
 
+            </div>
         </div>
     </div>
 </div>

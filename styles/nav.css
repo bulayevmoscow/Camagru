@@ -72,7 +72,52 @@ button.like.yes:active > svg > path {
 }
 
 /*preview webcam*/
-#preview img{
+#preview img {
 	display: block;
 	width: 100%;
+}
+
+/*thumbnails*/
+#thumbnails {
+	display: flex;
+	flex-flow: row wrap;
+}
+
+#thumbnails img {
+	display: flex;
+	width: 100%;
+	padding: 5px 5px;
+}
+
+#thumbnails span {
+	cursor: pointer;
+	position: absolute;
+	right: 5px;
+	top: -5px
+}
+
+/*make photobuttons*/
+#wc-makephoto {
+	display: flex;
+	flex-flow: row wrap;
+}
+
+#wc-makephoto label {
+	display: flex;
+	width: 100%;
+}
+
+#wc-makephoto a {
+	width: 100%;
+	text-align: center;
+	display: flex;
+	justify-content: center !important;
+}
+
+#wc-makephoto > * {
+	flex-basis: calc(50% - 20px);
+	text-align: center;
+	display: flex;
+	margin-bottom: 10px;
+	/*min-width: 150px*/
 }

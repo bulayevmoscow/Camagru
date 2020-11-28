@@ -1,5 +1,3 @@
-// regSwitcher = document.querySelector('body');
-
 regSwitcher.querySelectorAll('.btn').forEach((x) => {
     x.addEventListener('click', (x) => {
         if (x.target.classList.contains('btn')) {

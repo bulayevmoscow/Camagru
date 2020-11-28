@@ -5,31 +5,30 @@ let indexPhoto = {
     blob: null,
     url: null
 }
-//                    <a id="wc-b-makephoto" class="btn btn-danger" onclick="webcam_stop_recording(event)">Сделать снимок</a>
-//                     <a id="wc-b-addmask" class="btn btn-success" disabled>Добавить маску</a>
-//                     <a id="wc-b-submit" class="btn btn-primary" onclick="sumbit_photo()">Отправить</a>
+
+
 function webcam_make_snapshot(event) {
     video = document.querySelector('video');
-    let buttonMakeSnapshot = document.querySelector('#wc-b-add-mask');
-    let buttonAddMask = document.querySelector('#wc-b-addmask');
     let buttonSubmit = document.querySelector('#wc-b-submit');
     canvasPlace = document.querySelector('div.canvas');
+    document.querySelector("#wc-b-download").classList.toggle('d-none');
+    let settings = document.querySelector('#wc-mask-list');
+    clearPreview();
     if (playStatus) {
         video.play();
-        video.classList.toggle('d-none');
+        video.classList.remove('d-none');
+        settings.classList.add('d-none');
         clearPreview();
-        buttonAddMask.classList.toggle('d-none');
         buttonSubmit.classList.toggle('d-none');
-        wcSettingBrightness.value = 0;
-        wcSettingContrast.value = 0;
-        wcSettingInvert.checked = false;
-        wcSettingGrayscale.checked = false;
-        document.querySelector('#wc-mask-list').removeEventListener('change', sendImageToRender)
+        clearParamsImage();
+        document.querySelector('#wc-mask-list').removeEventListener('change', sendImageToRender);
+
     } else {
         video.pause();
-        video.classList.toggle('d-none');
+
+        video.classList.add('d-none');
+        settings.classList.remove('d-none');
         submitPhoto();
-        buttonAddMask.classList.toggle('d-none');
         buttonSubmit.classList.toggle('d-none');
         document.querySelector('#wc-mask-list').addEventListener('change', sendImageToRender)
     }
@@ -38,6 +37,40 @@ function webcam_make_snapshot(event) {
     playStatus = (playStatus) ? 0 : 1;
 
 }
+
+function getPhotoFromLoad(event) {
+    let preview = document.querySelector('#preview')
+    let file = event.target.files[0];
+    let settings = document.querySelector('#wc-mask-list');
+    let downloadButton = document.querySelector('#downloadImageLabel')
+    // let buttonSubmit = document.querySelector('#wc-b-submit');
+    // let buttonDownload = document.querySelector('#wc-b-download');
+    video = document.querySelector('video');
+    if (event.target.length === 0) {
+        return;
+    }
+    console.log(URL.createObjectURL(file));
+    console.log(event.target.files);
+    let image = document.createElement('img');
+    clearPreview();
+    indexPhoto.blob = file;
+    indexPhoto.url = image.src = URL.createObjectURL(file);
+    preview.append(image);
+    if (!document.querySelector("video").classList.contains('d-none'))
+        document.querySelector("video").classList.toggle('d-none')
+    if (downloadButton.innerHTML === 'Загрузить файл') {
+
+        // settings.classList.remove('d-none');
+        document.querySelector('#wc-mask-list').removeEventListener('change', sendImageToRender);
+    } else {
+        clearParamsImage();
+
+        // settings.classList.add('d-none');
+        document.querySelector('#wc-mask-list').addEventListener('change', sendImageToRender);
+    }
+    downloadButton.innerHTML = (downloadButton.innerHTML === 'Загрузить файл') ? 'Загрузить новый файл' : 'Загрузить файл';
+}
+
 
 function submitPhoto() {
     let canvas = document.createElement('canvas');
@@ -54,19 +87,23 @@ function submitPhoto() {
         let image = document.createElement('img');
         clearPreview();
         image.src = dataURI;
-        //
-        let link = document.createElement('a');
-        link.setAttribute('href', dataURI);
-        link.innerText = 'Download';
-        preview.append(link);
-        //
         preview.append(image);
     })
-    // dataURI = canvas.toDataURL('image/jpeg');
-    // dataURI = canvas.toDataURL('image/jpeg')
-
-
 }
+
+function addPhotoToThumbnails() {
+    let image = document.querySelector('#preview > img');
+    let target = document.querySelector('#thumbnails');
+    let shell = document.createElement('div');
+    shell.innerHTML = '<span aria-hidden="true">&times;</span>';
+    shell.querySelector('span').addEventListener('click', (event) => {
+        shell.remove();
+    })
+    shell.classList.add('col-12', 'position-relative', 'col-lg-6');
+    shell.append(image.cloneNode(true));
+    target.append(shell);
+}
+
 
 function sendImageToRender() {
     let img = document.querySelector('#preview>img');
@@ -83,17 +120,74 @@ function sendImageToRender() {
         .then(response => response.blob()
             .then((blob) => {
                 img.src = URL.createObjectURL(blob)
-            }))
-
-    // fetch('/controller/test.php', {
-    //     'method': 'POST',
-    //     'url': 'localhost:8080',
-    //     body: form
-    // })
-    //     .then(response => response.blob()
-    //         .then(response => response.text())
-    //         .then(json => console.log(json)))
+            })
+            .then(value => {
+                console.log(value)
+            })
+        )
 }
+
+function sendImagesToSave() {
+    let images = document.querySelectorAll('#thumbnails img');
+    if (images.length === 0)
+        return;
+    console.clear()
+    let form = new FormData();
+    let promises = Array();
+    form.append('json', JSON.stringify(getParamsImage()));
+    // form.append("indexPhoto", indexPhoto.blob, 'img.png');
+    images.forEach((image, i) => {
+        let canvas = document.createElement('canvas');
+        canvas.width = image.naturalWidth;
+        canvas.height = image.naturalHeight;
+        let ctx = canvas.getContext('2d');
+        ctx.drawImage(image, 0, 0, canvas.width, canvas.height);
+        let canvasBlob = getCanvasBlob(canvas);
+        promises.push(canvasBlob);
+        canvasBlob.then(function (e) {
+            form.append("photos[]", e, i + 'img.png');
+        })
+    })
+    // console.log(blob);
+    // console.log(Promise.)
+    // console.log(promises);
+    Promise.all(promises).then(() => {
+        console.log(form.getAll('photos[]'))
+        fetch('/controller/push_images.php', {
+            'method': 'POST',
+            'url': 'localhost:8080/controller/fisting.php',
+            body: form
+        })
+            .then(response => response.status).then(statusCode => {
+            if (statusCode === 200)
+                window.location = 'http://localhost:8080/?page=gallery&pages=0&msg=%20%D0%A4%D0%BE%D1%82%D0%BE%D0%B3%D1%80%D0%B0%D1%84%D0%B8%D0%B8%20%D0%B4%D0%BE%D0%B1%D0%B0%D0%B2%D0%BB%D0%B5%D0%BD%D1%8B'
+            else
+                alert('Ошибка ' + statusCode)
+        })
+    })
+}
+
+function getCanvasBlob(canvas) {
+    return new Promise(function (resolve, reject) {
+        canvas.toBlob((blob => {
+            resolve(blob);
+        }))
+    })
+}
+
+
+// async function fillBlob(blob, form, image, i) {
+//     let canvas = document.createElement('canvas');
+//     canvas.width = image.naturalWidth;
+//     canvas.height = image.naturalHeight;
+//     let ctx = canvas.getContext('2d');
+//     ctx.drawImage(image, 0, 0, canvas.width, canvas.height);
+//     await canvas.toBlob((e) => {
+//         blob.push(e);
+//         form.append("indexPhoto", e, i + '1.png');
+//         // console.log(form.getAll('indexPhoto'));
+//     })
+//     return blob
 
 
 function clearPreview() {
@@ -127,27 +221,19 @@ document.addEventListener('DOMContentLoaded', () => {
 })
 
 function getParamsImage() {
-//                    <div id="wc-mask-list">
-//                     <label for="wcSettingBrightness">Яркость</label>
-//                     <input type="range" class="form-control-range" id="wcSettingBrightness" value="255" min="0" max="255" step="1">
-//                     <label for="wcSettingContrast">Контраст</label>
-//                     <input type="range" class="form-control-range" id="wcSettingContrast" value="255" min="0" max="255" step="1"
-//                            onchange="console.log(this.value)">
-//                     <div class="form-check">
-//                         <input class="form-check-input" type="checkbox" value="" id="wcSettingInvert">
-//                         <label class="form-check-label" for="wcSettingInvert">Инвертировать цвета</label>
-//                         <div class="w-100"></div>
-//                         <input class="form-check-input" type="checkbox" value="" id="wcSettingGrayscale">
-//                         <label class="form-check-label" for="wcSettingGrayscale">Чернобелое</label>
-//                     </div>
-//                 </div>
-    let info = {
+    return {
         mainNode: document.querySelector('#wc-mask-list'),
         wcSettingBrightness: wcSettingBrightness.value,
         wcSettingContrast: wcSettingContrast.value,
         wcSettingInvert: wcSettingInvert.checked,
-        wcSettingGrayscale: wcSettingGrayscale.checked
-    }
-    // console.log(info);
-    return info;
+        wcSettingGrayscale: wcSettingGrayscale.checked,
+        wcSettingIcon: document.querySelector('input[type="radio"]:checked').value
+    };
+}
+
+function clearParamsImage() {
+    wcSettingBrightness.value = 0;
+    wcSettingContrast.value = 0;
+    wcSettingInvert.checked = false;
+    wcSettingGrayscale.checked = false;
 }
