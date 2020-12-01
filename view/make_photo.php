@@ -1,5 +1,7 @@
 <?php
 
+	// TODO только для авторизованных
+
 	//
 	//	TODO:
 	//	   Эта часть должна быть доступна только пользователям, которые аутентифицированы / подключены
@@ -37,9 +39,8 @@
                 <div id="wc-makephoto" class="d-flex justify-content-between my-2  d-none">
                     <a id="wc-b-makephoto" class="btn btn-danger d-none" onclick="webcam_make_snapshot(event)">Сделать снимок</a>
                     <input type="file" name="name" id="downloadImage" accept="image/*" hidden onchange="getPhotoFromLoad(event)">
-                    <label for="downloadImage"><a id="downloadImageLabel" class="btn btn-success" onclick="">Загрузить
+                    <label for="downloadImage"><a id="downloadImageLabel" class="btn btn-success">Загрузить
                             файл</a></label>
-
                     <a id="wc-b-download" class="btn btn-success d-none" onclick="sendImagesToSave()">Отправить</a>
                     <a id="wc-b-submit" class="btn btn-primary d-none" onclick="addPhotoToThumbnails()">Сохранить</a>
                 </div>

@@ -21,8 +21,12 @@
 
                         </li>
 					<?php } else { ?>
+
                         <li class="nav-item">
                             <a class="nav-link" href="/?page=register">Войти</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/?page=register">Зарегистрироваться</a>
                         </li>
 					<?php } ?>
                 </ul>

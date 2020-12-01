@@ -8,6 +8,11 @@ let indexPhoto = {
 
 
 function webcam_make_snapshot(event) {
+    let preview = document.querySelector("#preview");
+    if (document.querySelector("#preview").childElementCount) {
+        clearPreview();
+        playStatus = 1;
+    }
     video = document.querySelector('video');
     let buttonSubmit = document.querySelector('#wc-b-submit');
     canvasPlace = document.querySelector('div.canvas');
@@ -39,12 +44,13 @@ function webcam_make_snapshot(event) {
 }
 
 function getPhotoFromLoad(event) {
+    console.log("getPhotoFromLoad");
     let preview = document.querySelector('#preview')
     let file = event.target.files[0];
     let settings = document.querySelector('#wc-mask-list');
     let downloadButton = document.querySelector('#downloadImageLabel')
-    // let buttonSubmit = document.querySelector('#wc-b-submit');
-    // let buttonDownload = document.querySelector('#wc-b-download');
+    let buttonSubmit = document.querySelector('#wc-b-submit');
+    let buttonDownload = document.querySelector('#wc-b-download');
     video = document.querySelector('video');
     if (event.target.length === 0) {
         return;
@@ -53,6 +59,10 @@ function getPhotoFromLoad(event) {
     console.log(event.target.files);
     let image = document.createElement('img');
     clearPreview();
+    settings.classList.remove('d-none');
+    downloadButton.classList.remove('d-none');
+    buttonDownload.classList.remove('d-none');
+    buttonSubmit.classList.remove('d-none');
     indexPhoto.blob = file;
     indexPhoto.url = image.src = URL.createObjectURL(file);
     preview.append(image);
@@ -60,12 +70,9 @@ function getPhotoFromLoad(event) {
         document.querySelector("video").classList.toggle('d-none')
     if (downloadButton.innerHTML === 'Загрузить файл') {
 
-        // settings.classList.remove('d-none');
         document.querySelector('#wc-mask-list').removeEventListener('change', sendImageToRender);
     } else {
         clearParamsImage();
-
-        // settings.classList.add('d-none');
         document.querySelector('#wc-mask-list').addEventListener('change', sendImageToRender);
     }
     downloadButton.innerHTML = (downloadButton.innerHTML === 'Загрузить файл') ? 'Загрузить новый файл' : 'Загрузить файл';

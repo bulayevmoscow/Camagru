@@ -16,7 +16,7 @@
 	$conn = db_connect();
 	if ($conn->query("SELECT COUNT(*) FROM users where login='".$data['login']."';")->fetch()[0] > 0) {
 		if ($conn->query("SELECT COUNT(*) FROM users where login='".$data['login']."' and email_check=true;")->fetch()[0] > 0) {
-			header('Location: /index.php?page=register&need_email_confirm=true');
+			header('Location: /index.php?page=login&need_email_confirm=true');
 		} else {
 			if (password_verify($data['password'],
 				$conn->query("SELECT password FROM users where login='".$data['login']."'")->fetch()['password'])) {
@@ -24,13 +24,13 @@
 				header('Location: /index.php?auth=true');
 			} else {
 				$errors[] = 'Неверный пароль';
-				header('Location: /index.php?page=register&err='.implode(',', $errors));
+				header('Location: /index.php?page=login&err='.implode(',', $errors));
 			}
-		};
+		}
 
 	} else {
 		$errors[] = 'Неверный логин';
-		header('Location: /index.php?page=register&err='.implode(',', $errors));
+		header('Location: /index.php?page=login&err='.implode(',', $errors));
 		exit();
 	}
 

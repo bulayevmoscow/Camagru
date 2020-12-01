@@ -5,7 +5,7 @@
 	$info = array();
 
 	if ($user == NULL) {
-		header('Location: /index.php?page=register&msg=Для продолжения залогиньтесь');
+		header('Location: /index.php?page=login&msg=Для продолжения залогиньтесь');
 		exit();
 	}
 	include_once __DIR__.'/../controller/db.php';
@@ -54,7 +54,7 @@
 
 	$id = $conn->query(sprintf("SELECT id from users where login='%s';", $user))->fetch()[0];
 	if (!$id) {
-		header("Location: /?page=register&mgs=".'Неверные данные пользователя');
+		header("Location: /?page=login&mgs=".'Неверные данные пользователя');
 		exit();
 	}
 	if ($info['email']) {
@@ -74,7 +74,7 @@
 		unset($_SESSION['logged_user']);
 
 	}
-	header('Location: /index.php');
+	header('Location: /index.php?page=lk');
 
 	function reg_name($str)
 	{

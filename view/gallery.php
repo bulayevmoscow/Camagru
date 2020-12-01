@@ -8,22 +8,23 @@
 <?php ?>
 
 
-    <div class="container gallery-container">
-        <div class="row">
-			<?php
-				$posts = $conn->query('Select * from posts ORDER BY id DESC');
-				while ($row = $posts->fetch(PDO::FETCH_LAZY)) { ?>
-                    <div class="img-container col-12 border-danger border m-2">
-                        <img src="<?php echo '/img/'.$row['path'] ?>" alt=""
-                             class="d-block p-2 m-auto" style="max-height: 200px">
-                        <div class="like-container d-flex flex-row justify-content-between align-items-center">
-                            <p>Понравилось =
-								<?php echo($conn->query(sprintf("select count(*) from post where id='%d' and is_like=true ;", $row['id']))
-									->fetch()[0]); ?>
-                            </p>
-                            <span>
+<div class="container gallery-container">
+    <div class="row">
+		<?php
+			$posts = $conn->query('Select * from posts ORDER BY times DESC limit 5 offset 0');
+			while ($row = $posts->fetch(PDO::FETCH_LAZY)) { ?>
+                <div class="img-container col-12 border-danger border m-2">
+                    <img src="<?php echo '/img/'.$row['path'] ?>" alt=""
+                         class="d-block p-2 m-auto" style="max-height: 200px">
+                    <div class="like-container d-flex flex-row justify-content-between align-items-center">
+                        <p>Понравилось =
+							<?php echo($conn->query(sprintf("select count(*) from post where id='%d' and is_like=true ;", $row['id']))
+								->fetch()[0]); ?>
+                        </p>
+                        <span>
                             <form action="/controller/add_like.php" method="post" class="reset-active">
-                                <input class="d-none" type="text" name="post" value="<?php echo $row['id'] ?>">
+                                <input class="d-none" type="text" name="post" onchange="getPhotoFromLoad()"
+                                       value="<?php echo $row['id'] ?>">
                                 <?php
 	                                $query = sprintf("SELECT count(*) from post where by='%s' and id=%d and is_like=true;",
 		                                $_SESSION['logged_user'], $row['id']);
