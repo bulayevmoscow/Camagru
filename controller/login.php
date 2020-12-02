@@ -14,25 +14,26 @@
 
 	include __DIR__."/../controller/db.php";
 	$conn = db_connect();
-	if ($conn->query("SELECT COUNT(*) FROM users where login='".$data['login']."';")->fetch()[0] > 0) {
-		if ($conn->query("SELECT COUNT(*) FROM users where login='".$data['login']."' and email_check=true;")->fetch()[0] > 0) {
-			header('Location: /index.php?page=login&need_email_confirm=true');
-		} else {
-			if (password_verify($data['password'],
-				$conn->query("SELECT password FROM users where login='".$data['login']."'")->fetch()['password'])) {
-				$_SESSION['logged_user'] = $data['login'];
-				header('Location: /index.php?auth=true');
+	if ($conn->query(sprintf("select count(*) from users where login='%s'", $data['login']))->fetch()[0]) {
+//		почта есть
+		if (password_verify($data['password'],
+			$conn->query(sprintf("SELECT password FROM users where login='%s'", $data['login']))->fetch()[0])) {
+//			пароли совпадают
+			if ($conn->query(sprintf("SELECT email_check FROM users where login='%s'", $data['login']))->fetch()[0] == 'true') {
+				$errors[] = 'Нужна проверка почты';
+				header('Location: /index.php?page=login&need_email_confirm=true');
+				exit();
 			} else {
-				$errors[] = 'Неверный пароль';
-				header('Location: /index.php?page=login&err='.implode(',', $errors));
+				$_SESSION['logged_user'] = $data['login'];
+				header('Location: /index.php');
+				exit();
 			}
+		} else {
+			$errors[] = 'Неверный пароль';
 		}
-
 	} else {
 		$errors[] = 'Неверный логин';
-		header('Location: /index.php?page=login&err='.implode(',', $errors));
-		exit();
 	}
+	header('Location: /index.php?page=login&err='.implode(',', $errors));
 
-
-
+?>

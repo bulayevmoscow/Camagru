@@ -44,7 +44,12 @@ function webcam_make_snapshot(event) {
 }
 
 function getPhotoFromLoad(event) {
-    console.log("getPhotoFromLoad");
+    if (!event.target.files.length)
+        return;
+    if (event.target.files[0].size > 1800000) {
+        alert("Ошибка изображения, ограничение в 1.8mb, текущий размер =" + ((event.target.files[0].size) / 1024 / 1024).toFixed(2) + 'mb');
+        return;
+    }
     let preview = document.querySelector('#preview')
     let file = event.target.files[0];
     let settings = document.querySelector('#wc-mask-list');
@@ -55,8 +60,8 @@ function getPhotoFromLoad(event) {
     if (event.target.length === 0) {
         return;
     }
-    console.log(URL.createObjectURL(file));
-    console.log(event.target.files);
+    // console.log(URL.createObjectURL(file));
+    // console.log(event.target.files);
     let image = document.createElement('img');
     clearPreview();
     settings.classList.remove('d-none');

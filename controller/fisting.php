@@ -10,7 +10,7 @@
 	//		exit(303);
 	//	}
 	//	checkExt();
-
+	// fix screenshot from screenshot
 	$img['index'] = $_FILES['indexPhoto'];
 	$img['indexPhoto'] = $_FILES['indexPhoto']['tmp_name'];
 	$img['indexImage'] = checkExt($_FILES['indexPhoto']);
@@ -55,6 +55,10 @@
 
 	function checkExt($img)
 	{
+		if (!$img['tmp_name']) {
+			header("HTTP/1.0 501 Please download correct image");
+			exit(303);
+		}
 		if (($image = imagecreatefromstring(file_get_contents($img['tmp_name']))) == false) {
 			header("HTTP/1.0 500 ERROR LOAD IMAGE");
 			exit(303);

@@ -38,7 +38,7 @@
                 <p id="web-cam-err"></p>
                 <div id="wc-makephoto" class="d-flex justify-content-between my-2  d-none">
                     <a id="wc-b-makephoto" class="btn btn-danger d-none" onclick="webcam_make_snapshot(event)">Сделать снимок</a>
-                    <input type="file" name="name" id="downloadImage" accept="image/*" hidden onchange="getPhotoFromLoad(event)">
+                    <input type="file" name="name" id="downloadImage" accept="image/*" size="" hidden onchange="getPhotoFromLoad(event)">
                     <label for="downloadImage"><a id="downloadImageLabel" class="btn btn-success">Загрузить
                             файл</a></label>
                     <a id="wc-b-download" class="btn btn-success d-none" onclick="sendImagesToSave()">Отправить</a>

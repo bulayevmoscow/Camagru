@@ -11,7 +11,7 @@
 <div class="container text-center h-100 d-flex justify-content-center flex-column mt-5" style="min-height: 1vh">
 	<?php if ($_GET['page'] === 'login' && !isset($_GET['need_email_confirm'])) { ?>
         <p>login</p>
-        <form class="form-signin mx-auto mt-2" action="/controller/signup.php" method="post" style="min-width: 400px">
+        <form class="form-signin mx-auto mt-2" action="/controller/login.php" method="post" style="min-width: 400px">
             <img class="mb-4" src="https://getbootstrap.com/docs/4.0/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
 
             <label for="inputEmail" class="sr-only">Email address</label>
@@ -25,7 +25,7 @@
         </form>
 	<?php } elseif ($_GET['page'] == 'register' && !isset($_GET['need_email_confirm'])) { ?>
         <p>register</p>
-        <form class="form-login mx-auto mt-2 " action="/controller/login.php" method="post" style="min-width: 400px">
+        <form class="form-login mx-auto mt-2 " action="/controller/signup.php" method="post" style="min-width: 400px">
             <img class="mb-4" src="https://getbootstrap.com/docs/4.0/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
             <label for="inputName" class="sr-only">Email address</label>
             <input type="text" id="inputName" class="form-control mb-1" placeholder="Your name" autofocus=""

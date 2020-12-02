@@ -28,6 +28,9 @@
 		include __DIR__.'/view/make_photo.php';
 	} elseif (($_GET['page']) === 'lk') {
 		include __DIR__.'/view/lk.php';
+	} else {
+		echo "<script>window.location='/?page=gallery'</script>";
+//	    header("Location: /");
 	}
 
 ?>
